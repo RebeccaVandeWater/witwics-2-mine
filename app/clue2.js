@@ -11,6 +11,8 @@
 
 function returnIndex(arr, str) {
   // TODO your code here
+
+  return arr.findIndex((country) => country == str)
 }
 
 //-------------------------------------------
@@ -24,6 +26,8 @@ function returnIndex(arr, str) {
 
 function hasName(arr, name) {
   // TODO your code here
+
+  return arr.includes(name)
 }
 
 //-------------------------------------------
@@ -38,12 +42,26 @@ function hasName(arr, name) {
 // input: 1000
 // output: { error: "No user with that id." } 
 
-let staff = [{ id: 1, name: 'Jon' }, { id: 2, name: 'Yuli' }, { id: 21, name: 'Peter' },
-{ id: 17, name: 'St. MaryLou de la Playa Carmen' }, { id: 51, name: 'Doug' },
-{ id: 881, name: 'Paul' }, { id: 0, name: 'Jon' }, { id: 999, name: 'Timma' }]
+let staff = [
+  { id: 1, name: 'Jon' },
+  { id: 2, name: 'Yuli' },
+  { id: 21, name: 'Peter' },
+  { id: 17, name: 'St. MaryLou de la Playa Carmen' },
+  { id: 51, name: 'Doug' },
+  { id: 881, name: 'Paul' },
+  { id: 0, name: 'Jon' },
+  { id: 999, name: 'Timma' }]
 
 function findById(id) {
   // TODO YOUR CODE HERE
+
+  let foundPerson = staff.find(person => person.id == id)
+  // NOTE: null check first in a conditional, rather than if it is true
+  if (!foundPerson) {
+    return { error: "No user with that id." }
+  }
+  return foundPerson
+
 }
 
 //-------------------------------------------
@@ -71,6 +89,9 @@ let theBand = {
 
 function bandMemberDetails(name) {
   // TODO YOUR CODE HERE
+  let foundMember = theBand.members.find((member) => member.name == name)
+  // NOTE: this is string concatenation and does not need to be denoted with `` like string interpolation. Either can be used, depending on coder preference, to include a variable with a string.
+  return foundMember.name + ' is in a band and plays the ' + foundMember.instrument;
 }
 
 //-------------------------------------------
@@ -107,4 +128,13 @@ let flights = [{
 
 function flightCost(destination, firstClass) {
   // TODO YOUR CODE HERE
+  let foundFlight = flights.find(flightObject => flightObject.to == destination)
+
+  if (firstClass) {
+    return foundFlight.prices.firstClass
+
+  } else {
+    return foundFlight.prices.standard
+  }
+
 }

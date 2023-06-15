@@ -8,6 +8,7 @@
 
 function stringBreaker(str) {
   // TODO YOUR CODE HERE
+  return str.split('')
 }
 
 
@@ -19,6 +20,11 @@ function stringBreaker(str) {
 
 function rearranger(arr) {
   // TODO YOUR CODE HERE
+  let firstElement = arr.shift()
+
+  arr.push(firstElement)
+
+  return arr
 }
 
 
@@ -30,6 +36,11 @@ function rearranger(arr) {
 // output: ['sentence.', 'This', 'is', 'a', 'split' ]
 function reverseRearranger(arr) {
   // TODO YOUR CODE HERE
+  let lastElement = arr.pop()
+
+  arr.unshift(lastElement)
+
+  return arr
 }
 
 
@@ -40,6 +51,9 @@ function reverseRearranger(arr) {
 // output: ['is', 'a', 'split']
 function arrayPortion(arr, start, end) {
   // TODO YOUR CODE HERE
+  // NOTE: Since slice doesn't include the end of an array, we need to add +1 to be able to include it.
+  return arr.slice(start, end + 1)
+
 }
 
 // Final step we have the message broken up into words, we need to put it back into a normal sentence
@@ -50,4 +64,6 @@ function arrayPortion(arr, start, end) {
 
 function arrayToString(arr) {
   // TODO YOUR CODE HERE
+  // NOTE: toString makes the code readable for functions, join actually turns it into a whole string where you can include a space.
+  return arr.join(" ")
 }
